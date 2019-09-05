@@ -7,18 +7,6 @@ you can clone my repo [Orpere](https://github.com/orpere) and [kubespray](https:
 1 - create a themplate in xen with your election distro "I have add ubuntu18.04 and centos7"
     and don't forget to add your public key to the instances and enable sudo to your user. I use NOPASSWD
 
-How to create a instance with orp-xen-instance
-
-```bash
-ansible 2.8
-pip install xenapi-python
-export xenserver_hostname=box.lan.xt
-export xenserver_username=root
-export xenserver_password= ****
-
-ansible-playbook  create_instance.yml --extra-vars "instance_name=test1" --extra-vars "distro=ubuntu"
-```
-
 2 - run kubespray against your instances and don't forget to add the option --user and --private-key to your ansible-playbook command
 
 ```bash
