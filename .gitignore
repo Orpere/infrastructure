@@ -3,3 +3,6 @@ inventory
 get-pip.py
 admin.conf
 terraform
+hosts.ini
+create_instance.yml
+ansible.cfg
