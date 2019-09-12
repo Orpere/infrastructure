@@ -46,7 +46,7 @@ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admi
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
 helm install stable/traefik --name traefik --set dashboard.enabled=true,serviceType=NodePort,dashboard.domain=dashboard.traefik,rbac.enabled=true  --namespace kube-system
 
-#traefik dashboard with password 
+#traefik dashboard with password
 note: first need to remove the previous deployment
 htpasswd -nb traefik password
 
