@@ -2,6 +2,7 @@
 
 I am using a I7 machine with 64G of ram and a 600G disk and I connect to my openwrt where I use dnsmask to simulate A records
 on my box machine I use the xen server [XCP-NG](https://xcp-ng.org) what is a greate aquesition and it brings [XOA](https://xen-orchestra.com/#!/xosan-home) Great job!
+or KVM and use vagrant to deployment
 you can clone my repo [Orpere](https://github.com/orpere) and [kubespray](https://github.com/kubernetes-sigs/kubespray) inside what will help with the kubernetes build.
 
 1 - create a themplate in xen with your election distro "I have add ubuntu18.04 and centos7"
