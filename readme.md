@@ -39,15 +39,18 @@ kubectl apply -f k8s-cluster-manifests/metallb-map.yaml
 5 - install traefik
 
 ```bash
-helm init
+helm init --wait
 kubectl create serviceaccount --namespace kube-system tiller
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
 kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-# helm install stable/traefik --name traefik --set dashboard.enabled=true,serviceType=NodePort,dashboard.domain=dashboard.traefik,rbac.enabled=true  --namespace kube-system
+helm install stable/traefik --name traefik --set dashboard.enabled=true,serviceType=NodePort,dashboard.domain=dashboard.traefik,rbac.enabled=true  --namespace kube-system
 
+#traefik dashboard with password 
+note: first need to remove the previous deployment
 htpasswd -nb traefik password
 
-helm install stable/traefik --name traefik --set dashboard.enabled=true,serviceType=NodePort,dashboard.domain=dashboard.traefik,rbac.enabled=true,dashboard.auth.basic.traefik='$apr1$vUmd7ddA$CoklUZpHBbRzvnZUz6eFY.' --namespace kube-system
+
+helm install stable/traefik --name traefik --set dashboard.enabled=true,serviceType=LoadBalancer,dashboard.domain=traefik.lan,rbac.enabled=true,dashboard.auth.basic.traefik='$apr1$npha/qF1$VD51O1swfgGWmuiaDfdZA0' --namespace kube-system
 
 Note: check the service type and password
 ```
