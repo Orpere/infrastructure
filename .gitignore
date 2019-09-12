@@ -6,3 +6,5 @@ terraform
 hosts.ini
 create_instance.yml
 ansible.cfg
+postgres
+terraform/.terraform
